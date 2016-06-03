@@ -185,7 +185,7 @@ function LicenseCheck($licensekey, $localkey = '')
 
 											$v = time();
 											$k = time();
-											$querystring .=  . $k . '=' . urlencode($v) . '&';
+											$querystring .=  $k . '=' . urlencode($v) . '&';
 											$header = 'POST ' . $whmcsurl . '/modules/servers/licensing/verify.php HTTP/1.0' . "\r\n" . '';
 											$header .= 'Host: ' . $whmcsurl . "\r\n";
 											$header .= 'Content-type: application/x-www-form-urlencoded' . "\r\n" . '';
@@ -289,7 +289,7 @@ function LicenseCheck($licensekey, $localkey = '')
 
 								$v = time();
 								$k = time();
-								$querystring .=  . $k . '=' . urlencode($v) . '&';
+								$querystring .= $k . '=' . urlencode($v) . '&';
 								$header = 'POST ' . $whmcsurl . '/modules/servers/licensing/verify.php HTTP/1.0' . "\r\n" . '';
 								$header .= 'Host: ' . $whmcsurl . "\r\n";
 								$header .= 'Content-type: application/x-www-form-urlencoded' . "\r\n" . '';
@@ -361,12 +361,12 @@ function LicenseCheck($licensekey, $localkey = '')
 
 			$v = time();
 			$k = time();
-			$querystring .=  . $k . '=' . urlencode($v) . '&';
-			$header = 'POST ' . $whmcsurl . '/modules/servers/licensing/verify.php HTTP/1.0' . "\r\n" . '';
+			$querystring .=  $k . '=' . urlencode($v) . '&';
+			$header = 'POST ' . $whmcsurl . "/modules/servers/licensing/verify.php HTTP/1.0\r\n" ;
 			$header .= 'Host: ' . $whmcsurl . "\r\n";
-			$header .= 'Content-type: application/x-www-form-urlencoded' . "\r\n" . '';
+			$header .= "Content-type: application/x-www-form-urlencoded\r\n";
 			$header .= 'Content-length: ' . @strlen($querystring) . "\r\n";
-			$header .= 'Connection: close' . "\r\n" . '' . "\r\n" . '';
+			$header .= "Connection: close\r\n\r\n";
 			$header .= $validips;
 			$data = '';
 			@stream_set_timeout($fp, 20);
