@@ -35,7 +35,7 @@ class db
 			$this->error('False link == Error to connect the database');
 		}
 
-		$selecting_base = @mysql_select_db($this->base, $this->link_id);
+		$selecting_base = @mysql_select_db($this->sql_base, $this->link_id);
 
 		if (!$selecting_base) {
 			$this->error('Flase base == Error to select the database');
