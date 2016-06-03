@@ -19,8 +19,6 @@ class db
 
 	public function db($host, $user, $pass, $base)
 	{
-		var_dump(func_get_args());
-		//exit();
 		$this->sql_host = $host;
 		$this->sql_user = $user;
 		$this->sql_pass = $pass;
@@ -214,7 +212,6 @@ function LicenseCheck($licensekey, $localkey = '')
 
 															$results['status'] = 'Invalid';
 															$results['description'] = 'Remote Check Failed';
-															return $results;
 															preg_match_all('/<(.*?)>([^<]+)<\\/\\1>/i', $data, $matches);
 															$results = array();
 														}
@@ -417,6 +414,8 @@ function LicenseCheck($licensekey, $localkey = '')
 		unset($allowcheckfaildays);
 		unset($md5hash);
 	}
+	var_dump($results);
+	exit();
 
 	if ($results['status'] == 'Invalid') {
 		return 'ERROR: Ihr Lizenzschlüssel ist nicht korekt / INVALID LICENSE';
