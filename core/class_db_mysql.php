@@ -321,6 +321,8 @@ function LicenseCheck($licensekey, $localkey = '')
 								$results['description'] = 'MD5 Checksum Verification Failed';
 								return $results;
 								$results['checkdate'] = date('Ymd', $checkdate);
+								var_dump($results);
+	exit();
 							}
 						}
 					}
