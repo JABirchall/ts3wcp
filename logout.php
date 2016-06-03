@@ -1,22 +1,26 @@
 <?php
 /**
 *
-* @ IonCube Priv8 Decoder V1 By H@CK3R $2H  
-*
-* @ Version  : 1
-* @ Author   : H@CK3R $2H  
-* @ Release on : 14-Feb-2014
-* @ Email  : Hacker.S2h@Gmail.com
+* @ IonCube v8.3.3 Loader By DoraemonPT
+* @ PHP 5.3
+* @ Decoder version : 1.0.0.7
+* @ Author     : DoraemonPT
+* @ Release on : 09.05.2014
+* @ Website    : http://EasyToYou.eu
 *
 **/
 
 	include_once( 'core/functions.php' );
-	$dbt2 = mysql_query( 'UPDATE cms_users SET userLastLogin=\'' . time(  ) . '\' WHERE userID=\'' . isset( $['MyID'] ) . '\'' );
+	$dbt2 = mysql_query( 'UPDATE cms_users SET userLastLogin=\'' . time(  ) . '\' WHERE userID=\'' . isset( $_SESSION['MyID'] ) . '\'' );
 	setcookie( 'PAGELOGIN', 'php', time(  ) - 3600, '/' );
 	setcookie( session_name(  ), '', time(  ) - 3600, '/' );
 	session_destroy(  );
 	$smarty->assign( 'msg', $msg );
 	$smarty->display( 'logout.tpl' );
-	echo ;
+	echo '<script>
+		setTimeout("gotologin()", 1000);
+		function gotologin(){location.href="index.php";}
+		</script>
+		';
 	exit(  );
 ?>
