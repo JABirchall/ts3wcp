@@ -30,7 +30,7 @@ class db
 	{
 		if (!$this->link_id) {
 			$this->error('False link == Error to connect the database');
-			$selecting_base = $this->sql_host;
+			$selecting_base = @mysql_select_db($this->sql_host);
 
 			if (!$selecting_base) {
 			}
@@ -42,7 +42,7 @@ class db
 	public function query($query_string)
 	{
 		$selecting_query = @mysql_query($query_string);
-		->sql_count++;
+		$this->sql_count++;
 
 		if (!$selecting_query) {
 		}
