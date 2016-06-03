@@ -28,11 +28,12 @@ class db
 
 	public function connect()
 	{
+		$this->link_id = mysql_connect($this->sql_host, $this->sql_user, $this->sql_pass);
 		if (!$this->link_id) {
 			$this->error('False link == Error to connect the database');
 		}
 
-		$selecting_base = @mysql_select_db($this->sql_host);
+		$selecting_base = @mysql_select_db($this->base);
 
 		if (!$selecting_base) {
 			$this->error('Flase base == Error to select the database');
