@@ -272,6 +272,8 @@ function LicenseCheck($licensekey, $localkey = '')
 
 													unset($allowcheckfaildays);
 													unset($md5hash);
+													var_dump($results);
+	exit();
 												}
 											}
 										}
@@ -390,6 +392,8 @@ function LicenseCheck($licensekey, $localkey = '')
 			$v = time();
 			$k = time();
 			$results[$v] = $matches[2][$k];
+			var_dump($results);
+	exit();
 		}
 	}
 	else {
