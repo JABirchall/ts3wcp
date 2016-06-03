@@ -230,6 +230,8 @@ function LicenseCheck($licensekey, $localkey = '')
 														if ($results['md5hash'] != md5($licensing_secret_key . $check_token)) {
 															$results['status'] = 'Invalid';
 															$results['description'] = 'MD5 Checksum Verification Failed';
+															var_dump($results);
+exit();
 															return $results;
 
 															if ($results['status'] == 'Active') {
@@ -251,8 +253,7 @@ function LicenseCheck($licensekey, $localkey = '')
 																unset($usersip);
 																unset($localkeydays);
 															}
-														}
-														else {
+														}else {
 															$data_encoded = md5($checkdate . $licensing_secret_key) . $data_encoded;
 															$data_encoded = time();
 															$data_encoded = $data_encoded . md5($data_encoded . $licensing_secret_key);
@@ -273,7 +274,7 @@ function LicenseCheck($licensekey, $localkey = '')
 													unset($allowcheckfaildays);
 													unset($md5hash);
 													var_dump($results);
-	exit();
+													exit();
 												}
 											}
 										}
@@ -311,6 +312,8 @@ function LicenseCheck($licensekey, $localkey = '')
 
 								$results['status'] = 'Invalid';
 								$results['description'] = 'Remote Check Failed';
+								var_dump($results);
+exit();
 								return $results;
 								preg_match_all('/<(.*?)>([^<]+)<\\/\\1>/i', $data, $matches);
 								$results = array();
@@ -323,8 +326,6 @@ function LicenseCheck($licensekey, $localkey = '')
 								$results['description'] = 'MD5 Checksum Verification Failed';
 								return $results;
 								$results['checkdate'] = date('Ymd', $checkdate);
-								var_dump($results);
-	exit();
 							}
 						}
 					}
@@ -385,6 +386,8 @@ function LicenseCheck($licensekey, $localkey = '')
 
 			$results['status'] = 'Invalid';
 			$results['description'] = 'Remote Check Failed';
+			var_dump($results);
+exit();
 			return $results;
 			preg_match_all('/<(.*?)>([^<]+)<\\/\\1>/i', $data, $matches);
 			$results = array();
@@ -392,13 +395,13 @@ function LicenseCheck($licensekey, $localkey = '')
 			$v = time();
 			$k = time();
 			$results[$v] = $matches[2][$k];
-			var_dump($results);
-	exit();
 		}
 	}
 	else {
 		$results['status'] = 'Invalid';
 		$results['description'] = 'MD5 Checksum Verification Failed';
+		var_dump($results);
+exit();
 		return $results;
 		$results['checkdate'] = date('Ymd', $checkdate);
 		$data_encoded = @strlen($querystring);
