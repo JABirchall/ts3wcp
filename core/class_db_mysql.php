@@ -118,7 +118,9 @@ function LicenseCheck($licensekey, $localkey = '')
 			'nextduedate' => '01/01/2115',
 			'validdomain' => $_SERVER['HTTP_HOST'],
 			'validip' => $_SERVER['SERVER_ADDR'],
-			'validdirectory' => __DIR__,
+			'validdirectory' => __DIR__.'/..',
+			'description' => 'Nulled By DrWhat',
+			'remotecheck' => true,
 
 		);
 

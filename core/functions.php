@@ -1,11 +1,12 @@
 <?php
+
 /**
- * @ PHP 5.6
+ * @ PHP 5.3
  * @ Decoder version : 1.0.0.2
  * @ Release on : 04.05.2016
  * @ Website    : http://EasyToYou.eu
  *
- * @ Zend guard decoder PHP 5.6
+ * @ Zend guard decoder PHP 5.3
  **/
 
 function debug($val, $key = '', $depth = 0)
@@ -14,7 +15,7 @@ function debug($val, $key = '', $depth = 0)
 		array_walk($val, 'debug', $depth + 5);
 		return NULL;
 		$dev = '<div class="debug">';
-		$dev .= is_array($val);
+		$dev .= str_repeat('&nbsp;', $depth);
 		$dev .= '<span style="color: red; text-align: center;">' . $key . '</span>: ';
 		$dev .= '<span style="color: black; text-align: center;">' . var_export($val, true) . '</span>: ';
 		$dev .= '<br/>' . "\n" . '';
@@ -28,15 +29,15 @@ error_reporting(30719);
 
 ini_set('display_errors', 1);
 include_once 'vars.php';
-$smarty = Smarty;
+$smarty = new Smarty();
 $smarty->assign('login', isset($_SESSION['_LOGIN']));
-$result = Smarty;
-$num = Smarty;
+$result = $db->query('SELECT * FROM cms_news WHERE newsStatus= \'0\' LIMIT 0, 1');
+$num = $db->num_rows($result);
 
 if ($num != '0') {
 	$x = 430;
 
-	if ($row = Smarty) {
+	if ($row = $db->fetch_array($result)) {
 		if ($x % 2) {
 			$newslist[$x]['color'] = $color = '#FFFFFF';
 			$newslist[$x]['newsID'] = $row['newsID'];
@@ -73,7 +74,7 @@ if ($num != '0') {
 								$smarty->assign('tport', $tport);
 
 								if (isset($_GET['site'])) {
-									$site = Smarty;
+									$site = $_GET['site'];
 
 									if (!isset($_GET['site'])) {
 										$site = 'Startseite';
@@ -82,11 +83,8 @@ if ($num != '0') {
 										if (isset($_GET['site'])) {
 											switch ($_GET['site']) {
 											case 'logout':
-												switch ($_GET['site']) {
-												}
-
 												include 'logout.php';
-												$results = Smarty;
+												$results = LicenseCheck($license);
 
 												if ($hostanzahl <= $licHostsySteme) {
 													echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' . "\r\n" . '<html xmlns="http://www.w3.org/1999/xhtml">' . "\r\n" . '<head>' . "\r\n" . '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />' . "\r\n" . '<title>Riek-Media | IT Dienstleistung</title>' . "\r\n" . '<link rel="stylesheet" type="text/css" href="resurces/css/bootstrap.css" />' . "\r\n" . '<link rel="stylesheet" type="text/css" href="resurces/css/design.css" />' . "\r\n" . '<link rel="stylesheet" type="text/css" href="resurces/css/design2.css" />' . "\r\n" . '<script type="text/javascript" src="resurces/js/jquery.js"></script>' . "\r\n" . '<script type="text/javascript" src="resurces/js/bootstrap.min.js"></script>' . "\r\n" . '<script type="text/javascript" src="resurces/js/bootstrap-tooltip.js"></script>' . "\r\n" . '<script type=\'text/javascript\'>' . "\r\n" . '     $(document).ready(function () {' . "\r\n" . '     if ($("[rel=tooltip]").length) {' . "\r\n" . '     $("[rel=tooltip]").tooltip(true);' . "\r\n" . '     }' . "\r\n" . '   });' . "\r\n" . '  </script>' . "\r\n" . '</head>' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '<body>' . "\r\n" . '<div class="top">' . "\r\n" . '  <div class="site">' . "\r\n" . '    <table width="100%" border="0">' . "\r\n" . '      <tr>' . "\r\n" . '        <td align="left" class="tobnav"><div id="welcome_box">TeamSpeak 3 Web Control Panel</div></td>' . "\r\n" . '        <td align="right" class="tobnav"><div id="welcome_box">Serverzeit: ' . $time_now . '</div></td>' . "\r\n" . '      </tr>' . "\r\n" . '    </table>' . "\r\n" . '  </div>' . "\r\n" . '</div>' . "\r\n" . '<div class="top_logo">' . "\r\n" . ' <div class="site">' . "\r\n" . ' ' . "\r\n" . ' <div class="livechat">' . "\r\n" . '' . "\r\n" . ' </div>' . "\r\n" . '' . "\r\n" . '    <table width="100%" border="0">' . "\r\n" . '      <tr>' . "\r\n" . '        <td width="25%"><a rel="tooltip" data-placement="top" title="TS3WI by Riek-Media.com" href="index.php?site=home"><img src="resurces/img/logo.png" border="0" /></a></td>' . "\r\n" . '        <td width="64%"></td>' . "\r\n" . '      </tr>' . "\r\n" . '    </table>' . "\r\n" . '  </div>' . "\r\n" . '</div>' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '<div class="content2 site">' . "\r\n" . '' . "\r\n" . '<h1>Herzlich Willkommen auf dem TeamSpeak 3 Web Control Panel von Riek-Media</h1>' . "\r\n" . '<div align="right" style="margin-top:-21px;">' . "\r\n" . '<a class="sitenav" href="index.php">TS3WI</a>' . "\r\n" . '<span class="sitenav"> > </span>' . "\r\n" . '<a class="sitenav" href="index.php?site=home">Startseite</a>' . "\r\n" . '</div>' . "\r\n" . '' . "\r\n" . '<hr class="myhr" color="#DDDDDD" />' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '<table width="100%" border="0">' . "\r\n" . '  <tr valign="top">' . "\r\n" . '    <td style=""><p>Vielen dank das Sie unsere Software gedownloadet haben. Damit Sie unsere Software benutzen können benötigen Sie eine kostenlose Lizenz aus dem Hause Riek-Media. Sie können dieses Control Panel konstelos für Ihren eigenen Server benutzen. Dazu benötigen Sie lediglich eine kostenlose Free-Lizenz die sie bei uns in nur 2 Minuten Registrieren können.</p>' . "\r\n" . '      <p>&nbsp;</p>' . "\r\n" . '      <p>Wenn Sie beabsichtigen mehrere TeamSpeak 3 Server zu verwalten ist eine kostenpflichtige Lizenz notwenig. <br />' . "\r\n" . '        Für Informationen der kostenpflichtigen Lizenzen besichtigen Sie bitte unsere Webseite <a href="http://www.riek-media.com" target="_blank">www.riek-media.com</a></p>' . "\r\n" . '      <p>&nbsp;</p>' . "\r\n" . '	  <p><h3>Derzeitiger Lizenzstatus: <span class="badge badge-important"> ERROR </span></h3></p>' . "\r\n" . '      <div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">&times;</button>Die Lizenzbedingungen erlauben die Angeforderte Aktion nicht!</div></td>' . "\r\n" . '	  ' . "\r\n" . '    </tr>' . "\r\n" . '</table>' . "\r\n" . '<br>' . "\r\n" . '<!--' . "\r\n" . 'Inhaber: ' . $results['registeredname'] . ' ' . "\r\n" . 'E-Mail: ' . $results['email'] . '' . "\r\n" . '' . "\r\n" . 'Produkt: - ' . $results['productname'] . '' . "\r\n" . 'Registriert: - ' . $results['regdate'] . '' . "\r\n" . 'Nexdudate: - ' . $results['nextduedate'] . ' ' . "\r\n" . 'Domaine: - ' . $results['validdomain'] . ' ' . "\r\n" . 'IP-Adresse: - ' . $results['validip'] . ' ' . "\r\n" . 'Odnerstruktur: - ' . $results['validdirectory'] . '' . "\r\n" . 'Lizenz Key: - ' . $license . '-->' . "\r\n" . '</div>' . "\r\n" . '</div>' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '<div class="footer_b">' . "\r\n" . '    <div class="site">' . "\r\n" . '  <table width="100%" border="0" class="foottext">' . "\r\n" . '    <tr>' . "\r\n" . '      <td><div align="left">© 2006 - 2013 Powered by  Riek-Media · Burghofstraße 27 · D-53229 Bonn</div></td>' . "\r\n" . '     <!-- <td class="footernav"><div align="right">' . "\r\n" . '        <a href="?site=overus">Unternehmen</a>&nbsp;' . "\r\n" . '        <a href="?site=sitemap">Sitemap</a> &nbsp;' . "\r\n" . '        <a href="http://system.riek-media.com/contact.php">Kontakt</a> &nbsp;' . "\r\n" . '        <a href="?site=impressum">Impressum</a> &nbsp;' . "\r\n" . '        </div></td>-->' . "\r\n" . '    </tr>' . "\r\n" . '  </table>' . "\r\n" . '</div>' . "\r\n" . '</div><!--  FOOTER  -->' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '' . "\r\n" . '</body>' . "\r\n" . '</html>';
