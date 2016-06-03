@@ -1,19 +1,18 @@
 <?php
 /**
-*
-* @ IonCube Priv8 Decoder V1 By H@CK3R $2H  
-*
-* @ Version  : 1
-* @ Author   : H@CK3R $2H  
-* @ Release on : 14-Feb-2014
-* @ Email  : Hacker.S2h@Gmail.com
-*
-**/
+ * @ PHP 5.6
+ * @ Decoder version : 1.0.0.2
+ * @ Release on : 04.05.2016
+ * @ Website    : http://EasyToYou.eu
+ *
+ * @ Zend guard decoder PHP 5.6
+ **/
 
-	$dbhost = 'localhost';
-	$dbuser = '';
-	$dbpass = '';
-	$db = '';
-	$default_lang = 'german';
-	$license = 'HIER DEIN LIZENZKEY';
+$dbhost = 'localhost';
+$dbuser = '';
+$dbpass = '';
+$db = '';
+$default_lang = 'german';
+$license = 'HIER DEIN LIZENZKEY';
+
 ?>
