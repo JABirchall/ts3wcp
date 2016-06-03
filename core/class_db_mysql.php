@@ -20,7 +20,7 @@ class db
 	public function db($host, $user, $pass, $base)
 	{
 		var_dump(func_get_args());
-		exit();
+		//exit();
 		$this->sql_host = $host;
 		$this->sql_user = $user;
 		$this->sql_pass = $pass;
@@ -35,7 +35,7 @@ class db
 			$this->error('False link == Error to connect the database');
 		}
 
-		$selecting_base = @mysql_select_db($this->base);
+		$selecting_base = @mysql_select_db($this->base, $this->link_id);
 
 		if (!$selecting_base) {
 			$this->error('Flase base == Error to select the database');
