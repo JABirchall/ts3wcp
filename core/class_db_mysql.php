@@ -19,6 +19,8 @@ class db
 
 	public function db($host, $user, $pass, $base)
 	{
+		var_dump(func_get_args());
+		exit();
 		$this->sql_host = $host;
 		$this->sql_user = $user;
 		$this->sql_pass = $pass;
