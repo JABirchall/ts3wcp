@@ -1,24 +1,36 @@
 <?php
 /**
-*
-* @ IonCube Priv8 Decoder V1 By H@CK3R $2H  
-*
-* @ Version  : 1
-* @ Author   : H@CK3R $2H  
-* @ Release on : 14-Feb-2014
-* @ Email  : Hacker.S2h@Gmail.com
-*
-**/
+ * @ PHP 5.6
+ * @ Decoder version : 1.0.0.2
+ * @ Release on : 04.05.2016
+ * @ Website    : http://EasyToYou.eu
+ *
+ * @ Zend guard decoder PHP 5.6
+ **/
 
-	while (isset( $['hostID'] )) {
-		$smarty->assign( 'serversLink', 'index.php?site=serverlist' );
+if (isset($_SESSION['hostID'])) {
+	$smarty->assign('serversLink', 'index.php?site=serverlist');
+
+	$smarty->assign('serversLink', 'index.php?site=hostsysteme');
+	$costumerNR = $_SESSION;
+
+	if (isset($_GET['site'])) {
+		switch ($_GET['site']) {
+		}
+
+		error_reporting(30719);
+	}
+}
+else {
+	switch ($_GET['site']) {
 	}
 
-	jmp;
-	error_reporting( 30719 );
-	$['site'];
-	$smarty->assign( 'check', $['_LOGIN'] );
-	$smarty->assign( 'msg', $msg );
-	$smarty->display( 'admin/dashboard.tpl' );
-	exit(  );
+	error_reporting(30719);
+}
+
+$smarty->assign('check', $_SESSION['_LOGIN']);
+$smarty->assign('msg', $msg);
+$smarty->display('admin/dashboard.tpl');
+exit();
+
 ?>
