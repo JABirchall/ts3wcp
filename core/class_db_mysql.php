@@ -30,11 +30,12 @@ class db
 	{
 		if (!$this->link_id) {
 			$this->error('False link == Error to connect the database');
-			$selecting_base = @mysql_select_db($this->sql_host);
+		}
 
-			if (!$selecting_base) {
-				$this->error('Flase base == Error to select the database');
-			}
+		$selecting_base = @mysql_select_db($this->sql_host);
+		
+		if (!$selecting_base) {
+			$this->error('Flase base == Error to select the database');
 		}
 	}
 
