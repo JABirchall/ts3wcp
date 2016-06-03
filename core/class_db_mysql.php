@@ -279,7 +279,7 @@ function LicenseCheck($licensekey, $localkey = '')
 								}
 							}
 							else {
-								($ch, CURLOPT_TIMEOUT, 30);
+								curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 								curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 								$data = date('d');
 								curl_close($ch);
