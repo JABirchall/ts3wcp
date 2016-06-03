@@ -33,7 +33,7 @@ class db
 		}
 
 		$selecting_base = @mysql_select_db($this->sql_host);
-		
+
 		if (!$selecting_base) {
 			$this->error('Flase base == Error to select the database');
 		}
@@ -45,7 +45,7 @@ class db
 		$this->sql_count++;
 
 		if (!$selecting_query) {
-			$this->error( . 'False query == ' . $query_string);
+			$this->error('False query == ' . $query_string);
 		}
 		return $selecting_query;
 	}
@@ -67,7 +67,7 @@ class db
 		$selecting_result = mysql_unbuffered_query($query_string);
 
 		if (!$selecting_result) {
-			$this->error( . 'False query == ' . $query_string);
+			$this->error('False query == ' . $query_string);
 		}
 
 		return $selecting_result;
