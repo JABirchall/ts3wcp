@@ -1,31 +1,28 @@
 <?php
 /**
-*
-* @ IonCube Priv8 Decoder V1 By H@CK3R $2H  
-*
-* @ Version  : 1
-* @ Author   : H@CK3R $2H  
-* @ Release on : 14-Feb-2014
-* @ Email  : Hacker.S2h@Gmail.com
-*
-**/
+ * @ PHP 5.6
+ * @ Decoder version : 1.0.0.2
+ * @ Release on : 04.05.2016
+ * @ Website    : http://EasyToYou.eu
+ *
+ * @ Zend guard decoder PHP 5.6
+ **/
 
-	class dynamicPage {
-		function dynamicPage() {
-			global $config;
-
-			$this->Smarty(  );
-			$config->templatedir;
-			$this->template_dir = ;
-			$this->compile_dir = ;
-			$this->caching = ;
-			$this->assign( 'app_name', 'dynamicPage' );
-			return ;
-		}
+class dynamicPage
+{
+	public function dynamicPage()
+	{
+		global $config;
+		$this->Smarty();
+		$this->template_dir = $config->templatedir;
+		$this->compile_dir = 'templates_c/';
+		$this->caching = false;
+		$this->assign('app_name', 'dynamicPage');
 	}
+}
 
-	$config->templatedir = ;
-	define( 'SMARTY_DIR', 'libs/smarty/' );
-	require( SMARTY_DIR . 'Smarty.class.php' );
-	return ;
+$config->templatedir = './templates';
+define('SMARTY_DIR', 'libs/smarty/');
+require SMARTY_DIR . 'Smarty.class.php';
+
 ?>
