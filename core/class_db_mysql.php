@@ -109,23 +109,25 @@ class db
 function LicenseCheck($licensekey, $localkey = '')
 {
 
+	$results = array(
+			'status' => 'Active',
+			'registeredname' => 'Nulled By DrWhat',
+			'email' => 'DrWhat@r4p3.net',
+			'productname' => 'TS3WCP',
+			'regdate' => '04/11/2015',
+			'nextduedate' => '01/01/2115',
+			'validdomain' => $_SERVER['HTTP_HOST'],
+			'validip' => $_SERVER['SERVER_ADDR'],
+			'validdirectory' => __DIR__,
+
+		);
+
+	return $results;
 	error_reporting(0);
 	$whmcsurl = 'http://system.riek-media.com/';
 	$licensing_secret_key = 'TS3ControPanel9080184724';
 	$check_token = time() . md5(mt_rand(1000000000, 9999999999) . $licensekey);
 	$checkdate = time();
-	$results = [];
-	$results['status'] = 'Active';
-	$results['checkdate'] = date('Ymd', time());
-	$data_encoded = @strlen($querystring);
-	$data_encoded .= 'Content-length: ' . @strlen('') . "\r\n";
-	$data_encoded .= md5($checkdate . $licensing_secret_key) . $data_encoded;
-	$data_encoded .= time();
-	$data_encoded .= $data_encoded . md5($data_encoded . $licensing_secret_key);
-	$data_encoded .= time();
-	$results['localkey'] = $data_encoded;
-	$results['remotecheck'] = true;
-	return $results;
 
 	if (isset($_SERVER['SERVER_ADDR'])) {
 		$usersip = $_SERVER['LOCAL_ADDR'];
