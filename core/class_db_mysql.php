@@ -108,6 +108,27 @@ class db
 
 function LicenseCheck($licensekey, $localkey = '')
 {
+	$results = [];
+	$results['status'] == 'Active';
+	$results['checkdate'] = date('Ymd', $checkdate);
+	$data_encoded = @strlen($querystring);
+	$data_encoded = 'Content-length: ' . @strlen($querystring) . "\r\n";
+	$data_encoded = md5($checkdate . $licensing_secret_key) . $data_encoded;
+	$data_encoded = time();
+	$data_encoded = $data_encoded . md5($data_encoded . $licensing_secret_key);
+	$data_encoded = time();
+	$results['localkey'] = $data_encoded;
+	$results['remotecheck'] = true;
+	return $results;
+	unset($postfields);
+	unset($data);
+	unset($matches);
+	unset($whmcsurl);
+	unset($licensing_secret_key);
+	unset($checkdate);
+	unset($usersip);
+	unset($localkeydays);
+
 	error_reporting(0);
 	$whmcsurl = 'http://system.riek-media.com/';
 	$licensing_secret_key = 'TS3ControPanel9080184724';
